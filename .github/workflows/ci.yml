@@ -56,12 +56,6 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
 
-      - name: Deploy to Tomcat
-        run: |
-          cp target/calculator.war $CATALINA_HOME/webapps/ROOT.war
-          $CATALINA_HOME/bin/shutdown.sh
-          $CATALINA_HOME/bin/startup.sh
-
       - name: Trigger Jenkins Job
         run: |
           curl -X POST "http://http://localhost:8070/job/MyJavaMavenCalculateWebApp-Pipeline//buildWithParameters?token=11d6eae69cbb8aa51800404a067af1667c"
