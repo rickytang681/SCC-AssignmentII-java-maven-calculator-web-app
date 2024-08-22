@@ -62,15 +62,6 @@ jobs:
           $CATALINA_HOME/bin/shutdown.sh
           $CATALINA_HOME/bin/startup.sh
 
-      - name: Build Docker image
-        run: docker build -t calculator .
-
-      - name: Docker login
-	run: echo "698321Rtrh" | docker login -u rickyt0681 --password-stdin
-
-      - name: Docker push
-        run: docker push ${{ rickyt0681 }}/calculator
-
       - name: Trigger Jenkins Job
         run: |
           curl -X POST "http://http://localhost:8070/job/MyJavaMavenCalculateWebApp-Pipeline//buildWithParameters?token=11d6eae69cbb8aa51800404a067af1667c"
