@@ -48,11 +48,14 @@ jobs:
           name: build-artifacts
           path: target/calculator.war
 
+      - name: Generate Test Report
+        run: mvn surefire-report:report
+
       - name: Upload Test Reports
         uses: actions/upload-artifact@v3
         with:
           name: surefire-report
-          path: target/site/surefire-report.html
+          path: target/site/**
 
 
       - name: Generate code coverage report
