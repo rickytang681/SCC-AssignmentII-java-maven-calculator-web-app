@@ -51,8 +51,8 @@ jobs:
       - name: Upload Test Reports
         uses: actions/upload-artifact@v3
         with:
-          name: test-reports
-          path: target/site/surefire-reports.html
+          name: surefire-reports
+          path: target/site/
 
 
       - name: Generate code coverage report
